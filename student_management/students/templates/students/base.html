@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Student Management{% endblock %}</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'students/style.css' %}">
+    <script src="{% static 'students/script.js' %}" defer></script>
+</head>
+<body>
+    <header class="navbar">
+        <a class="brand" href="{% url 'student_list' %}">
+            Student Management System
+        </a>
+        <a class="nav-link" href="{% url 'student_add' %}">+ Add Student</a>
+    </header>
+
+    <main class="container">
+        {% block content %}{% endblock %}
+    </main>
+
+    <footer>Student Management System | Django + MySQL</footer>
+</body>
+</html>

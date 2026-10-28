@@ -1,0 +1,27 @@
+{% extends "students/base.html" %}
+
+{% block title %}{{ title }} | Student Management{% endblock %}
+
+{% block content %}
+<section class="page-heading">
+    <div>
+        <h1>{{ title }}</h1>
+        <p>Enter student details below.</p>
+    </div>
+</section>
+
+<div class="table-card">
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+
+        <button class="btn primary" type="submit">
+            Save Student
+        </button>
+
+        <a class="btn secondary" href="{% url 'student_list' %}">
+            Cancel
+        </a>
+    </form>
+</div>
+{% endblock %}
